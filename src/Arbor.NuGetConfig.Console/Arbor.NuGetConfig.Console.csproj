@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>arbor-nugetconfig</ToolCommandName>
+    <PackageId>Arbor.Tooler.GlobalTool</PackageId>
+    <AssemblyName>dotnet-arbor-nugetconfig</AssemblyName>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Serilog" Version="2.9.0" />
+    <PackageReference Include="Serilog.SInks.console" Version="3.1.1" />
+  </ItemGroup>
+
+</Project>

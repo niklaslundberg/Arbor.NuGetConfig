@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Arbor.NuGetConfig.Console": {
+      "commandName": "Project",
+      "commandLineArgs": "directory=C:\\Work\\EmptyNuGetConfig"
+    }
+  }
+}

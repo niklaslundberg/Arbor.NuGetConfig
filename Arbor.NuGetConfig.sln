@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arbor.NuGetConfig.Console", "src\Arbor.NuGetConfig.Console\Arbor.NuGetConfig.Console.csproj", "{2A811655-2A10-4C00-B3A3-57C85C4B5407}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{01D3C98B-1031-4CD3-AB1D-0998AC00AD1A}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		LICENSE.txt = LICENSE.txt
+		README.md = README.md
+		version.json = version.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A811655-2A10-4C00-B3A3-57C85C4B5407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A811655-2A10-4C00-B3A3-57C85C4B5407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A811655-2A10-4C00-B3A3-57C85C4B5407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A811655-2A10-4C00-B3A3-57C85C4B5407}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {67E8CBF0-5BF3-4C62-8B71-015B342E34B0}
+	EndGlobalSection
+EndGlobal
