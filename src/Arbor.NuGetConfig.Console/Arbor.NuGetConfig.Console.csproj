@@ -5,7 +5,7 @@
     <OutputType>Exe</OutputType>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>arbor-nugetconfig</ToolCommandName>
-    <PackageId>Arbor.Tooler.GlobalTool</PackageId>
+    <PackageId>Arbor.NuGetConfig.GlobalTool</PackageId>
     <AssemblyName>dotnet-arbor-nugetconfig</AssemblyName>
     <LangVersion>8</LangVersion>
   </PropertyGroup>
