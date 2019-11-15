@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 
 using Serilog;
 
@@ -11,7 +12,7 @@ namespace Arbor.NuGetConfig.Console
 
         public ArgHelper(ILogger logger)
         {
-            _logger = logger;
+            this._logger = logger;
         }
 
         public CreateEmptyConfig ParseCreateEmptyConfig(string[] args)
@@ -19,7 +20,7 @@ namespace Arbor.NuGetConfig.Console
             if (args.Length == 0)
                 return null;
 
-            string[] parts = args[0].Split('=', StringSplitOptions.RemoveEmptyEntries);
+            var parts = args[0].Split('=', StringSplitOptions.RemoveEmptyEntries);
 
             if (parts.Length != 2)
                 return null;
@@ -27,8 +28,15 @@ namespace Arbor.NuGetConfig.Console
             if (!parts[0].Equals("directory", StringComparison.OrdinalIgnoreCase))
                 return null;
 
-            string directory = parts[1];
+            var directory = parts[1];
             DirectoryInfo directoryInfo;
+
+            bool clear = false;
+
+            if (args.Contains("--clear"))
+            {
+                clear = true;
+            }
 
             try
             {
@@ -36,11 +44,11 @@ namespace Arbor.NuGetConfig.Console
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Could not create directory info " + directory);
+                this._logger.Error(ex, "Could not create directory info " + directory);
                 return null;
             }
 
-            return new CreateEmptyConfig(directoryInfo);
+            return new CreateEmptyConfig(directoryInfo, clear);
         }
     }
 }

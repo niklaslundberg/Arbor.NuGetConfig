@@ -66,7 +66,11 @@ namespace Arbor.NuGetConfig.Console
                 return 0;
             }
 
-            await File.WriteAllTextAsync(fileInfo.FullName, NuGetConfigTemplate.Empty);
+            var template = createEmptyConfig.Clear
+                               ? NuGetConfigTemplate.Clear
+                               : NuGetConfigTemplate.Empty;
+
+            await File.WriteAllTextAsync(fileInfo.FullName, template);
 
             _logger.Information("Created nuget.config file '{Path}'", fileInfo.FullName);
 
