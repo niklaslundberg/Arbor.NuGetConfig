@@ -10,33 +10,31 @@ namespace Arbor.NuGetConfig.Console
     {
         private readonly ILogger _logger;
 
-        public ArgHelper(ILogger logger)
-        {
-            this._logger = logger;
-        }
+        public ArgHelper(ILogger logger) => _logger = logger;
 
         public CreateEmptyConfig ParseCreateEmptyConfig(string[] args)
         {
             if (args.Length == 0)
+            {
                 return null;
+            }
 
             var parts = args[0].Split('=', StringSplitOptions.RemoveEmptyEntries);
 
             if (parts.Length != 2)
+            {
                 return null;
+            }
 
             if (!parts[0].Equals("directory", StringComparison.OrdinalIgnoreCase))
+            {
                 return null;
+            }
 
-            var directory = parts[1];
+            string directory = parts[1];
             DirectoryInfo directoryInfo;
 
-            bool clear = false;
-
-            if (args.Contains("--clear"))
-            {
-                clear = true;
-            }
+            bool clear = args.Contains("--clear", StringComparer.OrdinalIgnoreCase);
 
             try
             {
@@ -44,7 +42,7 @@ namespace Arbor.NuGetConfig.Console
             }
             catch (Exception ex)
             {
-                this._logger.Error(ex, "Could not create directory info " + directory);
+                _logger.Error(ex, "Could not create directory info " + directory);
                 return null;
             }
 

@@ -7,11 +7,11 @@ namespace Arbor.NuGetConfig.Console
         public CreateEmptyConfig(DirectoryInfo directoryInfo, bool clear)
         {
             Directory = directoryInfo;
-            this.Clear = clear;
+            Clear = clear;
         }
 
-        public DirectoryInfo Directory { get; }
-
         public bool Clear { get; }
+
+        public DirectoryInfo Directory { get; }
     }
 }

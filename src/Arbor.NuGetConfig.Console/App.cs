@@ -28,7 +28,9 @@ namespace Arbor.NuGetConfig.Console
         public void Dispose()
         {
             if (_logger is IDisposable disposable)
+            {
                 disposable.Dispose();
+            }
         }
 
         private static App CreateApp(string[] args)
@@ -38,11 +40,9 @@ namespace Arbor.NuGetConfig.Console
             return new App(logger, argHelper);
         }
 
-        private static ILogger CreateLogger(string[] args)
-        {
-            return new LoggerConfiguration()
+        private static ILogger CreateLogger(string[] args) =>
+            new LoggerConfiguration()
                 .WriteTo.Console().CreateLogger();
-        }
 
         private async Task<int> Run(string[] args)
         {
@@ -56,7 +56,9 @@ namespace Arbor.NuGetConfig.Console
             }
 
             if (!createEmptyConfig.Directory.Exists)
+            {
                 createEmptyConfig.Directory.Create();
+            }
 
             var fileInfo = new FileInfo(Path.Combine(createEmptyConfig.Directory.FullName, "nuget.config"));
 
@@ -66,9 +68,9 @@ namespace Arbor.NuGetConfig.Console
                 return 0;
             }
 
-            var template = createEmptyConfig.Clear
-                               ? NuGetConfigTemplate.Clear
-                               : NuGetConfigTemplate.Empty;
+            string template = createEmptyConfig.Clear
+                                  ? NuGetConfigTemplate.Clear
+                                  : NuGetConfigTemplate.Empty;
 
             await File.WriteAllTextAsync(fileInfo.FullName, template);
 
@@ -77,9 +79,6 @@ namespace Arbor.NuGetConfig.Console
             return 0;
         }
 
-        private void ShowUsage()
-        {
-            _logger.Information("Usage: directory={{Path}}");
-        }
+        private void ShowUsage() => _logger.Information("Usage: directory={{Path}}");
     }
 }

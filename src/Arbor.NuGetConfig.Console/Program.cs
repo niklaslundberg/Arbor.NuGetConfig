@@ -4,9 +4,6 @@ namespace Arbor.NuGetConfig.Console
 {
     public static class Program
     {
-        public static Task<int> Main(string[] args)
-        {
-            return App.CreateAndRun(args);
-        }
+        public static Task<int> Main(string[] args) => App.CreateAndRun(args);
     }
 }
